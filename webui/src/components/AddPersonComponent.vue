@@ -64,13 +64,12 @@ export default defineComponent({
       }
      // this.$store.commit("updateDeviceId", devId);
       //this.$store.commit("updateBackendUrl", backendUrl);
-      this.$store.dispatch("addPerson",{firstname: this.firstName,lastname: this.lastName})
-      
-      
-      if (this.toast.error.length === 2){
-          this.toast.success("person added successfully !");
+       try {
+            this.$store.dispatch("addPerson",{firstname: this.firstName,lastname: this.lastName, id:null})
+            this.$router.push("/");
+      } catch (err) {
+         
       }
-      //
 
       // this.$store.backendUrl = this.backendUrl;
       //this.$store.deviceId = this.deviceId;

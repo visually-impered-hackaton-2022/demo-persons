@@ -1,4 +1,9 @@
 <template>
+<div class="row">
+    <div class="col s2">
+      Persons List
+    </div> 
+  </div>
   <div class="row">
     <div class="col s1">
       <a href="/add" class="waves-effect waves-light btn">Add</a>  
@@ -19,8 +24,8 @@
         <tbody>
           <tr v-for="person in viewPeople" :key="person.id">
             <td>{{ person.id}}</td>
-            <td>{{ person.firstname }}</td>
-            <td>{{ person.lastname }}</td>
+            <td>{{ person.firstName }}</td>
+            <td>{{ person.lastName }}</td>
           </tr>
           
         </tbody>
