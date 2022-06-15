@@ -14,7 +14,6 @@ interface APPRootState {
   version: string;
   backendUrl: string;
   persons : Person[];
-  newPerson: Person;
   // error: string;
 }
 
@@ -23,8 +22,7 @@ const store = createStore<APPRootState>({
     version: "1.0.0", // a simple property
     backendUrl: "http://localhost:8080/persons",
     persons: [],
-    newPerson: { id: NaN,firstName:"",lastName: ""
-    }
+   
     // error: "",
   },
   mutations: {
@@ -40,7 +38,6 @@ const store = createStore<APPRootState>({
   },
   actions: {
     getPersons({ commit }): any {
-      store.commit("updateError", "");
       newRequest(
         HTTP_VERBS.GET,
         this.state.backendUrl,
@@ -54,10 +51,10 @@ const store = createStore<APPRootState>({
         store.commit("updateError", err);
       });
     },
-    addPerson({ commit }): any {
-      store.commit("updateError", "");
-      store.commit("updateError", "");
-      const json = JSON.stringify(this.state.newPerson);
+    addPerson({ commit },{firstname,lastname}): any {
+     
+      let person:Person = {firstName:firstname,lastName:lastname,id:null};
+      const json = JSON.stringify(person);
       console.log(json);
       newRequest(
         HTTP_VERBS.POST,
@@ -71,6 +68,7 @@ const store = createStore<APPRootState>({
         const err = `Error at sending request !`;
         store.commit("updateError", err);
       });
+
     },
   }, //end of actions
 }); //end of store
