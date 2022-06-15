@@ -6,7 +6,7 @@
  *
  */
 interface Person {
-   id: number;
+   id: number | null  ;
 
   firstName: string;
 
