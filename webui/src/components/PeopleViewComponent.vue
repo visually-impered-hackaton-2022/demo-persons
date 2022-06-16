@@ -6,7 +6,8 @@
   </div>
   <div class="row">
     <div class="col s1">
-      <a href="/add" class="waves-effect waves-light btn">Add</a>  
+       <router-link to="/add" class="waves-effect waves-light btn">ADD</router-link>
+    
     </div> 
   </div>
 
